@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link rel="stylesheet" href="../style.css"> 
+</head>
+<body>
+
+  <script src="../script.js"></script> 
+</body>
+</html><section id="divan" style="background:var(--bg2);padding:7rem 3rem;position:relative;overflow:hidden;">
+
+<!-- Watermark décoratif -->
+<div style="position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-family:'Noto Serif',serif;font-size:20rem;color:rgba(29,78,216,.03);pointer-events:none;user-select:none;line-height:1;">شعر</div>
+
+<div class="section-wrap">
+
+  <div class="section-header">
+    <div>
+      <div class="section-label">Poésie Persane</div>
+      <h2>Divan de <em>Hâfez</em> de Chiraz</h2>
+    </div>
+  </div>
+
+  <div style="max-width:700px;margin-bottom:3.5rem;">
+    <p style="font-size:1rem;color:var(--muted);line-height:1.9;margin-bottom:1rem;">
+      <strong style="color:var(--text);font-weight:400">Shams-ud-Dîn Muhammad Hâfez</strong> (1315–1390)
+      est le plus grand poète lyrique de la littérature persane. Son <em>Divân</em> — recueil de ghazals —
+      est une méditation infinie sur l'amour, le vin, l'ivresse mystique et la fugacité du monde.
+    </p>
+    <p style="font-size:.9rem;color:var(--muted);line-height:1.8;">
+      En Iran, on consulte encore le <em>Divân</em> comme un oracle : on ferme les yeux, on pense à une question,
+      on ouvre au hasard. Ce qu'on lit est la réponse. C'est le <em>fâl</em>.
+    </p>
+  </div>
+
+  <!-- ONGLETS PAR GHAZAL -->
+  <div class="poem-tabs-wrapper">
+    <div style="display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:2.5rem;overflow-x:auto;">
+      <button class="poem-tab active" data-target="ghazal1"
+        style="padding:.7rem 1.4rem;border:none;background:none;cursor:pointer;font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border-bottom:2px solid var(--accent);transition:.2s;white-space:nowrap;">
+        Ghazal I — Alâ yâ ayyuha's-sâqî
+      </button>
+      <button class="poem-tab" data-target="ghazal2"
+        style="padding:.7rem 1.4rem;border:none;background:none;cursor:pointer;font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid transparent;transition:.2s;white-space:nowrap;">
+        Ghazal II — Le vent de roses
+      </button>
+      <button class="poem-tab" data-target="ghazal3"
+        style="padding:.7rem 1.4rem;border:none;background:none;cursor:pointer;font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid transparent;transition:.2s;white-space:nowrap;">
+        Ghazal III — Le rossignol
+      </button>
+    </div>
+
+    <!-- Ghazal 1 -->
+    <div class="poem-panel active" id="ghazal1">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;">
+        <div>
+          <div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">Persan original</div>
+          <div style="font-family:'Noto Serif',serif;font-size:1.2rem;line-height:2.4;color:var(--text);text-align:right;direction:rtl;border-right:2px solid var(--accent-mid);padding-right:1.2rem;">
+            الا یا ایها الساقی ادر کأسا وناولها<br>
+            که عشق آسان نمود اول ولی افتاد مشکل‌ها<br><br>
+            به بوی نافه‌ای کاخر صبا زان طره بگشاید<br>
+            ز تاب جعد مشکینش چه خون افتاد در دل‌ها<br><br>
+            مرا در منزل جانان چه امن عیش چون هر دم<br>
+            جرس فریاد می‌دارد که بربندید محمل‌ها
+          </div>
+        </div>
+        <div>
+          <div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">Traduction française</div>
+          <div style="font-family:var(--serif);font-size:1.1rem;font-style:italic;line-height:2;color:var(--muted);border-left:2px solid var(--border);padding-left:1.2rem;">
+            Ô échanson, lève la coupe et tends-la —<br>
+            car l'amour sembla d'abord facile, puis vint la difficulté.<br><br>
+            Dans l'espoir que la brise du matin dénoue les mèches de cette chevelure,<br>
+            que de sang a coulé dans les cœurs de ses boucles musquées !<br><br>
+            Dans la demeure de l'être aimé, quelle paix m'est-il permis<br>
+            quand à chaque instant la cloche crie : chargez les montures !
+          </div>
+          <div style="margin-top:1.5rem;padding:1.2rem;background:var(--bg3);border-radius:var(--radius);border-left:2px solid var(--accent);">
+            <div style="font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;">Note de lecture</div>
+            <p style="font-size:.83rem;color:var(--muted);line-height:1.7;">
+              Ce premier ghazal s'ouvre sur un vers en arabe — une tradition soufie qui marque la frontière entre le monde
+              ordinaire et l'ivresse mystique. Le <em>sâqî</em> (échanson) est à la fois le serveur de vin et le guide spirituel.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ghazal 2 -->
+    <div class="poem-panel" id="ghazal2" style="display:none;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;">
+        <div>
+          <div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">Persan original</div>
+          <div style="font-family:'Noto Serif',serif;font-size:1.2rem;line-height:2.4;color:var(--text);text-align:right;direction:rtl;border-right:2px solid var(--accent-mid);padding-right:1.2rem;">
+            صبا به تهنیت پیر می‌فروش آمد<br>
+            که موسم طرب و عیش و ناز و نوش آمد<br><br>
+            هوا مسیح‌نفس گشت و باد نافه‌گشای<br>
+            درخت سبز شد و مرغ در خروش آمد<br><br>
+            چو پرده‌دار به شمشیر می‌زند همه را<br>
+            کسی مقیم حریم تو از که‌ست هوش آمد
+          </div>
+        </div>
+        <div>
+          <div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">Traduction française</div>
+          <div style="font-family:var(--serif);font-size:1.1rem;font-style:italic;line-height:2;color:var(--muted);border-left:2px solid var(--border);padding-left:1.2rem;">
+            La brise matinale vint féliciter le vieux marchand de vin —<br>
+            la saison de la joie, du festin, de la coquetterie et du breuvage est venue.<br><br>
+            L'air a l'haleine du Messie, le vent dénoue les parfums —<br>
+            les arbres sont verts, l'oiseau a trouvé sa voix.<br><br>
+            Comme le garde du rideau frappe tous de son épée,<br>
+            qui garde ses sens dans ton sanctuaire ?
+          </div>
+          <div style="margin-top:1.5rem;padding:1.2rem;background:var(--bg3);border-radius:var(--radius);border-left:2px solid var(--accent);">
+            <div style="font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;">Note de lecture</div>
+            <p style="font-size:.83rem;color:var(--muted);line-height:1.7;">
+              Un poème de printemps (<em>bahârieh</em>). La renaissance de la nature est prétexte à célébrer l'éveil spirituel.
+              L'haleine du Messie — <em>dam-e 'Isâ</em> — est dans la tradition persane synonyme de pouvoir de guérison et de résurrection.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ghazal 3 -->
+    <div class="poem-panel" id="ghazal3" style="display:none;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;">
+        <div>
+          <div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">Persan original</div>
+          <div style="font-family:'Noto Serif',serif;font-size:1.2rem;line-height:2.4;color:var(--text);text-align:right;direction:rtl;border-right:2px solid var(--accent-mid);padding-right:1.2rem;">
+            بلبلی برگ گلی خوش‌رنگ در منقار داشت<br>
+            وندر آن برگ و نوا دل خوش و خوش‌کار داشت<br><br>
+            گفتمش در عین وصل این ناله و فریاد چیست<br>
+            گفت ما را جلوه معشوق در این کار داشت<br><br>
+            یار اگر ننشست با ما نیست جای اعتراض<br>
+            پادشاهی کام‌رانی داری و اقتدار داشت
+          </div>
+        </div>
+        <div>
+          <div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">Traduction française</div>
+          <div style="font-family:var(--serif);font-size:1.1rem;font-style:italic;line-height:2;color:var(--muted);border-left:2px solid var(--border);padding-left:1.2rem;">
+            Un rossignol tenait dans son bec un pétale de rose aux couleurs vives —<br>
+            dans ce feuillage et ce chant, son cœur était joyeux et comblé.<br><br>
+            Je lui demandai : dans l'union même, pourquoi ces plaintes et ces cris ?<br>
+            Il répondit : c'est la splendeur de l'aimée qui nous y contraint.<br><br>
+            Si l'ami ne s'est pas assis avec nous, il n'y a pas lieu de se plaindre —<br>
+            un roi a ses délices et sa puissance à tenir.
+          </div>
+          <div style="margin-top:1.5rem;padding:1.2rem;background:var(--bg3);border-radius:var(--radius);border-left:2px solid var(--accent);">
+            <div style="font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;">Note de lecture</div>
+            <p style="font-size:.83rem;color:var(--muted);line-height:1.7;">
+              Le rossignol (<em>bolbol</em>) et la rose (<em>gol</em>) sont le couple archétypal de la poésie persane :
+              l'amant et l'aimée, le mystique et le divin. Même dans l'union, le désir persiste — thème central du soufisme hafézien.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTE BAS DE PAGE -->
+  <div style="margin-top:4rem;padding:2rem;background:var(--bg3);border-radius:var(--radius);display:flex;align-items:flex-start;gap:1.5rem;border:1px solid var(--border);">
+    <div style="font-size:2rem;flex-shrink:0;">📚</div>
+    <div>
+      <div style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem;">À propos des traductions</div>
+      <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">
+        Les traductions présentées ici sont des versions de travail — fidèles au sens plutôt qu'à la métrique.
+        Pour une traduction littéraire de référence, consulter celle de Charles-Henri de Fouchécour
+        (<em>Le Divân, Verdier, 2006</em>) ou de Mohammad Ali Eslami-Nodoushan.
+      </p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<style>
+.poem-tab.active {
+  color: var(--accent) !important;
+  border-bottom-color: var(--accent) !important;
+}
+.poem-panel { display:none; }
+.poem-panel.active { display:block; }
+@media(max-width:700px) {
+  .poem-panel > div { grid-template-columns:1fr !important; }
+}
+</style>

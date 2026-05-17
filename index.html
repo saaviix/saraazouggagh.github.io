@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sara AZOUGGAGH — Mathématiques · IA · Littérature</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 0 3rem;
+      gap: 4rem;
+      padding-top: 80px;
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content:'';
+      position:absolute;
+      top:-10%; right:-5%;
+      width:700px; height:700px;
+      border-radius:50%;
+      background: radial-gradient(circle, rgba(29,78,216,0.06) 0%, transparent 70%);
+      pointer-events:none;
+    }
+
+    #hero::after {
+      content:'';
+      position:absolute;
+      bottom:0; left:0; right:0;
+      height:1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity:.2;
+    }
+
+    .hero-text { animation: fadeUp .9s ease both; }
+
+    .hero-tag {
+      font-size:.7rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color: var(--accent);
+      margin-bottom:1.4rem;
+      display:flex;
+      align-items:center;
+      gap:.8rem;
+    }
+    .hero-tag::before {
+      content:'';
+      display:block;
+      width:2rem; height:1.5px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 6.5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      margin-bottom: 1.4rem;
+      color: var(--text);
+    }
+    h1 em { font-style:italic; color: var(--accent); }
+
+    .hero-sub {
+      font-size:1.05rem;
+      color: var(--muted);
+      max-width:460px;
+      margin-bottom:2.2rem;
+      line-height:1.8;
+    }
+
+    .hero-pills {
+      display:flex;
+      flex-wrap:wrap;
+      gap:.55rem;
+      margin-bottom:2.5rem;
+    }
+
+    .hero-pill {
+      font-size:.7rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      padding:.32rem .85rem;
+      border:1px solid var(--border);
+      border-radius:2rem;
+      color:var(--muted);
+      transition:.2s;
+      background: var(--bg2);
+    }
+    .hero-pill:hover { border-color:var(--accent); color:var(--accent); }
+
+    /* PHOTO */
+    .hero-photo {
+      display:flex;
+      justify-content:center;
+      animation: fadeUp .9s .2s ease both;
+    }
+
+    .photo-frame {
+      position:relative;
+      width: min(340px, 100%);
+    }
+    .photo-frame::before {
+      content:'';
+      position:absolute;
+      inset:-10px;
+      border:1px solid rgba(29,78,216,.2);
+      border-radius:4px;
+      transform:rotate(2deg);
+    }
+    .photo-frame::after {
+      content:'';
+      position:absolute;
+      inset:-20px;
+      border:1px solid rgba(29,78,216,.08);
+      border-radius:4px;
+      transform:rotate(-1deg);
+    }
+
+    .photo-placeholder {
+      width:100%;
+      aspect-ratio:3/4;
+      background: var(--bg2);
+      border:1px solid var(--border);
+      border-radius:4px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      color:var(--muted);
+      font-size:.78rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      gap:1rem;
+      overflow:hidden;
+      position:relative;
+    }
+    .photo-placeholder img {
+      width:100%; height:100%;
+      object-fit:cover;
+      position:absolute; inset:0;
+    }
+    .photo-caption {
+      position:absolute;
+      bottom:0; left:0; right:0;
+      padding:1rem;
+      background:linear-gradient(transparent, rgba(12,27,78,.7));
+      font-family:var(--serif);
+      font-size:.95rem;
+      font-style:italic;
+      color:#fff;
+      text-align:center;
+    }
+
+    /* scroll indicator */
+    .hero-scroll {
+      position:absolute;
+      bottom:2.5rem;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:.5rem;
+      color:var(--muted);
+      font-size:.68rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      animation: fadeIn 1.5s 1s both;
+    }
+    .scroll-line {
+      width:1px; height:40px;
+      background: linear-gradient(var(--accent), transparent);
+      animation: lineGrow 1.5s 1s ease both;
+      transform-origin: top;
+    }
+
+    /* ── LIGHTBOX ── */
+    #lightbox {
+      position:fixed; inset:0;
+      z-index:9999;
+      display:none;
+      align-items:center;
+      justify-content:center;
+    }
+    #lightbox.open { display:flex; }
+    .lb-overlay {
+      position:absolute; inset:0;
+      background:rgba(12,27,78,.88);
+    }
+    .lb-content {
+      position:relative;
+      z-index:1;
+      max-width:90vw;
+      max-height:90vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:1rem;
+    }
+    .lb-close {
+      position:absolute;
+      top:-2.5rem; right:0;
+      background:none; border:none;
+      color:#fff; font-size:1.2rem;
+      cursor:pointer;
+    }
+    .lb-img {
+      max-width:80vw;
+      max-height:75vh;
+      object-fit:contain;
+      border-radius:4px;
+    }
+    .lb-caption {
+      color:rgba(255,255,255,.7);
+      font-family:var(--serif);
+      font-style:italic;
+      font-size:.95rem;
+    }
+
+    @media(max-width:900px) {
+      #hero { grid-template-columns:1fr; padding:6rem 1.5rem 4rem; }
+      .hero-photo { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">Sara <span>A.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#research">Recherche</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#books">Lectures</a></li>
+    <li><a href="#divan">Poésie</a></li>
+    <li><a href="#gallery">Galerie</a></li>
+    <li><a href="#ressources">CPGE</a></li>
+    <li><a href="#contact" class="btn-primary" style="padding:.45rem 1.1rem;font-size:.7rem;">Contact</a></li>
+  </ul>
+  <button class="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu">
+  <a href="#about">À propos</a>
+  <a href="#research">Recherche</a>
+  <a href="#projects">Projets</a>
+  <a href="#books">Lectures</a>
+  <a href="#divan">Poésie</a>
+  <a href="#gallery">Galerie</a>
+  <a href="#ressources">CPGE</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<section id="hero">
+  <div class="hero-text">
+    <div class="hero-tag">École Centrale Casablanca · ML · Recherche</div>
+    <h1>Sara<br><em>Azouggagh</em></h1>
+    <p class="hero-sub">
+      Ingénieure en formation, chercheuse en IA et exploratrice à la frontière des mathématiques, du machine learning et de la littérature.
+    </p>
+    <div class="hero-pills">
+      <span class="hero-pill">Neural ODEs</span>
+      <span class="hero-pill">NLP / LLMs</span>
+      <span class="hero-pill">Inférence Causale</span>
+      <span class="hero-pill">Biomathématiques</span>
+      <span class="hero-pill">Poésie Persane</span>
+      <span class="hero-pill">Culture Amazighe</span>
+    </div>
+    <a href="#about" class="btn-primary" style="margin-right:.8rem">Découvrir →</a>
+    <a href="sections/ressourcescpge.html" class="btn-outline">Ressources CPGE</a>
+  </div>
+
+  <div class="hero-photo">
+  <div class="photo-frame">
+    <div class="photo-placeholder">
+      <img src="assets/sasaprofile.jpg.jpeg" alt="Sara Azouggagh">
+      <div class="photo-caption">Sara Azouggagh</div>
+    </div>
+  </div>
+</div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<div id="about-wrapper">
+  <script>
+    fetch('sections/about.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('about-wrapper').outerHTML = html; })
+      .catch(() => {
+        document.getElementById('about-wrapper').innerHTML =
+          '<div style="text-align:center;padding:4rem;color:var(--muted)">Ouvrir avec Live Server pour charger les sections · <a href="sections/about.html" style="color:var(--accent)">À propos →</a></div>';
+      });
+  </script>
+</div>
+
+<div id="research-wrapper">
+  <script>
+    fetch('sections/research.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('research-wrapper').outerHTML = html; })
+      .catch(() => {
+        document.getElementById('research-wrapper').innerHTML =
+          '<div style="text-align:center;padding:4rem;color:var(--muted)"><a href="sections/research.html" style="color:var(--accent)">Recherche →</a></div>';
+      });
+  </script>
+</div>
+
+<div id="projects-wrapper">
+  <script>
+    fetch('sections/projects.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('projects-wrapper').outerHTML = html; })
+      .catch(() => {
+        document.getElementById('projects-wrapper').innerHTML =
+          '<div style="text-align:center;padding:4rem;color:var(--muted)"><a href="sections/projects.html" style="color:var(--accent)">Projets →</a></div>';
+      });
+  </script>
+</div>
+
+<div id="books-wrapper">
+  <script>
+    fetch('sections/books.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('books-wrapper').outerHTML = html; })
+      .catch(() => {
+        document.getElementById('books-wrapper').innerHTML =
+          '<div style="text-align:center;padding:4rem;color:var(--muted)"><a href="sections/books.html" style="color:var(--accent)">Lectures →</a></div>';
+      });
+  </script>
+</div>
+
+<div id="divan-wrapper">
+  <script>
+    fetch('sections/divan_hafez_chiraz.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('divan-wrapper').outerHTML = html; })
+      .catch(() => {
+        document.getElementById('divan-wrapper').innerHTML =
+          '<div style="text-align:center;padding:4rem;color:var(--muted)"><a href="sections/divan_hafez_chiraz.html" style="color:var(--accent)">Poésie →</a></div>';
+      });
+  </script>
+</div>
+
+<div id="gallery-wrapper">
+  <script>
+    fetch('sections/gallery.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('gallery-wrapper').outerHTML = html; })
+      .catch(() => {
+        document.getElementById('gallery-wrapper').innerHTML =
+          '<div style="text-align:center;padding:4rem;color:var(--muted)"><a href="sections/gallery.html" style="color:var(--accent)">Galerie →</a></div>';
+      });
+  </script>
+</div>
+
+<div id="ressources-wrapper">
+  <script>
+    fetch('sections/ressourcescpge.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('ressources-wrapper').outerHTML = html; })
+      .catch(() => {
+        document.getElementById('ressources-wrapper').innerHTML =
+          '<div style="text-align:center;padding:4rem;color:var(--muted)"><a href="sections/ressourcescpge.html" style="color:var(--accent)">Ressources CPGE →</a></div>';
+      });
+  </script>
+</div>
+
+<div id="contact-wrapper">
+  <script>
+    fetch('sections/contact.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('contact-wrapper').outerHTML = html; })
+      .catch(() => {
+        document.getElementById('contact-wrapper').innerHTML =
+          '<div style="text-align:center;padding:4rem;color:var(--muted)"><a href="sections/contact.html" style="color:var(--accent)">Contact →</a></div>';
+      });
+  </script>
+</div>
+
+<footer style="background:var(--text);color:rgba(255,255,255,.5);text-align:center;padding:2rem 3rem;font-size:.78rem;letter-spacing:.1em;">
+  <p style="font-family:var(--serif);font-style:italic;font-size:1rem;color:rgba(255,255,255,.7);margin-bottom:.5rem;">
+    "Les mathématiques ne sont pas une langue morte — elles sont le code source du réel."
+  </p>
+  © 2026 Sara Azouggagh · École Centrale Casablanca
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

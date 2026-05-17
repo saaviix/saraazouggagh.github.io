@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link rel="stylesheet" href="../style.css"> 
+</head>
+<body>
+
+  <script src="../script.js"></script> 
+</body>
+</html>
+<section id="gallery" style="background:var(--bg);padding:7rem 3rem;">
+<div class="section-wrap">
+
+  <div class="section-header">
+    <div>
+      <div class="section-label">Galerie</div>
+      <h2>Moments & <em>inspirations</em></h2>
+    </div>
+  </div>
+
+  <p style="font-size:.95rem;color:var(--muted);max-width:550px;margin-bottom:3rem;line-height:1.8;">
+    Instantanés de ma vie académique, de mes voyages et des lieux qui m'ont
+    aidée à penser. Cliquer sur une photo pour l'agrandir.
+  </p>
+
+  <!-- CATÉGORIE FILTER -->
+  <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2.5rem;" id="galleryFilters">
+    <button class="gallery-filter-btn active" data-cat="all"
+      style="padding:.4rem 1rem;border:1.5px solid var(--accent);background:var(--accent);color:#fff;border-radius:2rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:.2s;">
+      Tout
+    </button>
+    <button class="gallery-filter-btn" data-cat="science"
+      style="padding:.4rem 1rem;border:1.5px solid var(--border);background:transparent;color:var(--muted);border-radius:2rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:.2s;">
+      Sciences
+    </button>
+    <button class="gallery-filter-btn" data-cat="culture"
+      style="padding:.4rem 1rem;border:1.5px solid var(--border);background:transparent;color:var(--muted);border-radius:2rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:.2s;">
+      Culture
+    </button>
+    <button class="gallery-filter-btn" data-cat="nature"
+      style="padding:.4rem 1rem;border:1.5px solid var(--border);background:transparent;color:var(--muted);border-radius:2rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:.2s;">
+      Nature
+    </button>
+  </div>
+
+  <!-- GRILLE MASONRY-LIKE -->
+  <div style="display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:180px;gap:.8rem;" id="galleryGrid">
+
+    <div class="gallery-item" data-cat="science"
+      style="grid-column:span 5;grid-row:span 2;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;">
+      <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;color:var(--muted);">
+        <div style="font-size:2.5rem;">🔬</div>
+        <span style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;">Laboratoire LIASSE</span>
+      </div>
+      <div class="gallery-overlay" style="position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(12,27,78,.8));opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.2rem;">
+        <span style="font-family:var(--serif);font-size:.95rem;font-style:italic;color:#fff;">Laboratoire LIASSE — ENSA, 2026</span>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="culture"
+      style="grid-column:span 4;grid-row:span 1;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;">
+      <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;color:var(--muted);">
+        <div style="font-size:2rem;">📖</div>
+        <span style="font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;">Divan de Hâfez</span>
+      </div>
+      <div class="gallery-overlay" style="position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(12,27,78,.8));opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.2rem;">
+        <span style="font-family:var(--serif);font-size:.95rem;font-style:italic;color:#fff;">Mon exemplaire du Divân</span>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="nature"
+      style="grid-column:span 3;grid-row:span 2;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;">
+      <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;color:var(--muted);">
+        <div style="font-size:2rem;">🏔️</div>
+        <span style="font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;">Haut Atlas</span>
+      </div>
+      <div class="gallery-overlay" style="position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(12,27,78,.8));opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.2rem;">
+        <span style="font-family:var(--serif);font-size:.95rem;font-style:italic;color:#fff;">Montagnes du Haut Atlas</span>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="science"
+      style="grid-column:span 4;grid-row:span 1;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;">
+      <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;color:var(--muted);">
+        <div style="font-size:2rem;">💻</div>
+        <span style="font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;">École Centrale</span>
+      </div>
+      <div class="gallery-overlay" style="position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(12,27,78,.8));opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.2rem;">
+        <span style="font-family:var(--serif);font-size:.95rem;font-style:italic;color:#fff;">Campus ECC, 2025</span>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="culture"
+      style="grid-column:span 3;grid-row:span 1;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;">
+      <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;color:var(--muted);">
+        <div style="font-size:2rem;">ⵣ</div>
+        <span style="font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;">Culture amazighe</span>
+      </div>
+      <div class="gallery-overlay" style="position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(12,27,78,.8));opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.2rem;">
+        <span style="font-family:var(--serif);font-size:.95rem;font-style:italic;color:#fff;">Culture amazighe</span>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="science"
+      style="grid-column:span 4;grid-row:span 1;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;">
+      <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;color:var(--muted);">
+        <div style="font-size:2rem;">✈️</div>
+        <span style="font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;">Aéroport Fès-Saïss</span>
+      </div>
+      <div class="gallery-overlay" style="position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(12,27,78,.8));opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.2rem;">
+        <span style="font-family:var(--serif);font-size:.95rem;font-style:italic;color:#fff;">Stage BUTEC — 2025</span>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="nature"
+      style="grid-column:span 5;grid-row:span 1;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;">
+      <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;color:var(--muted);">
+        <div style="font-size:2rem;">🌿</div>
+        <span style="font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;">Région Souss-Massa</span>
+      </div>
+      <div class="gallery-overlay" style="position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(12,27,78,.8));opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.2rem;">
+        <span style="font-family:var(--serif);font-size:.95rem;font-style:italic;color:#fff;">Terrain agricole, Souss-Massa</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NOTE UPLOAD -->
+  <div style="margin-top:2rem;padding:1.4rem 1.6rem;background:var(--bg2);border:1px dashed var(--border);border-radius:var(--radius);display:flex;align-items:center;gap:1rem;">
+    <span style="font-size:1.2rem;">📷</span>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.6;">
+      <strong style="color:var(--text);font-weight:400;">Ajouter vos photos :</strong>
+      Placez les fichiers dans <code style="background:var(--bg4);padding:.1em .4em;border-radius:3px;font-size:.78rem;color:var(--accent);">assets/</code>
+      et remplacez les blocs placeholder par
+      <code style="background:var(--bg4);padding:.1em .4em;border-radius:3px;font-size:.78rem;color:var(--accent);">&lt;img src="assets/photo.jpg"&gt;</code>
+    </p>
+  </div>
+
+</div>
+</section>
+
+<script>
+// Hover overlay effect on gallery items
+document.querySelectorAll('.gallery-item').forEach(item => {
+  const overlay = item.querySelector('.gallery-overlay');
+  item.addEventListener('mouseenter', () => { if(overlay) overlay.style.opacity='1'; });
+  item.addEventListener('mouseleave', () => { if(overlay) overlay.style.opacity='0'; });
+});
+
+// Gallery filter
+document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const cat = this.dataset.cat;
+    document.querySelectorAll('.gallery-filter-btn').forEach(b => {
+      b.style.background = 'transparent';
+      b.style.color = 'var(--muted)';
+      b.style.borderColor = 'var(--border)';
+    });
+    this.style.background = 'var(--accent)';
+    this.style.color = '#fff';
+    this.style.borderColor = 'var(--accent)';
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      if (cat === 'all' || item.dataset.cat === cat) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
